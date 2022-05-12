@@ -7,6 +7,9 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
 
+      - name: echo node version
+        run: node -v
+
       - name: install dependencies
         run: npm install
 
