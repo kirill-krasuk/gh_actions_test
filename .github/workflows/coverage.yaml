@@ -17,6 +17,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
+    - name: get coverage
+      run: npm run test -- --watchAll=false --ci --json --coverage --testLocationInResults --outputFile=./coverage/report.json
+
     - name: Download artifact
       uses: dawidd6/action-download-artifact@v2
       with: 
