@@ -17,6 +17,18 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
+    - name: set nodejs version
+      uses: actions/setup-node@v3
+      with: 
+        node-version: 16
+        cache: npm
+
+    - name: echo node version
+      run: node -v
+
+    - name: install dependencies
+      run: npm install --legacy-peer-deps
+
     - name: get coverage
       run: npm run test -- --watchAll=false --ci --json --coverage --testLocationInResults --outputFile=./coverage/report.json
 
