@@ -7,6 +7,11 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
 
+      - name: set nodejs version
+        uses: actions/set-nodejs-version
+        with: 
+          node-version: 14
+
       - name: echo node version
         run: node -v
 
