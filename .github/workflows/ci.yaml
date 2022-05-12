@@ -15,7 +15,7 @@ jobs:
         uses: tj-actions/branch-names@v5.2
 
       - name: BRANCH_NAME
-        run: echo ${{ steps.branch-name.outputs.base_ref_branch }}
+        run: echo ${{ steps.branch-name.outputs.current_branch }}
 
       - name: checkout
         uses: actions/checkout@v3
@@ -38,5 +38,5 @@ jobs:
       - name: upload coverage report
         uses: actions/upload-artifact@v2
         with:
-          name: coverage-report-${{ steps.branch-name.outputs.base_ref_branch }}
+          name: coverage-report-${{ steps.branch-name.outputs.current_branch }}
           path: ./coverage/report.json
