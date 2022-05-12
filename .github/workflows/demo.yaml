@@ -4,6 +4,9 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
+      - name: checkout
+        run: actions/checkout
+
       - name: install dependencies
         run: npm install
 
