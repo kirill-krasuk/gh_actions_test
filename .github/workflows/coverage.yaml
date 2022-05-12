@@ -14,8 +14,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - uses: pdffiller/jest-coverage-report@v2
+    - uses: pdffiller/jest-coverage@main
       with:
         threshold: 40
         coverage-file: ./coverage/report.json
         base-coverage-file: ./coverage/develop/report.json
+        annotations: 'none'
