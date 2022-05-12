@@ -36,6 +36,7 @@ jobs:
       uses: dawidd6/action-download-artifact@v2
       with: 
         workflow: ci.yaml
+        branch: develop
         path: ./prev
 
     - uses: ArtiomTr/jest-coverage-report-action@v2
