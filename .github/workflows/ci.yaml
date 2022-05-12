@@ -13,6 +13,9 @@ jobs:
       - name: checkout
         uses: actions/checkout@v3
 
+      - name: echo current branch
+        run: echo ${GITHUB_REF##*/}
+
       - name: set nodejs version
         uses: actions/setup-node@v3
         with: 
