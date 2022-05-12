@@ -4,5 +4,8 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
+      - name: install dependencies
+        run: npm install
+
       - name: run tests
         run: npm run test -- --watchAll=false
