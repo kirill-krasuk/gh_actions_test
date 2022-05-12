@@ -38,6 +38,7 @@ jobs:
     - name: Download artifact
       uses: dawidd6/action-download-artifact@v2
       with: 
+        pr: ${{github.event.pull_request.number}}
         workflow: ci.yaml
         path: ./prev
 
