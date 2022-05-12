@@ -31,5 +31,5 @@ jobs:
       - name: upload coverage report
         uses: actions/upload-artifact@v2
         with:
-          name: 'coverage-report-${GITHUB_REF##*/}'
+          name: 'coverage-report-${{ ${GITHUB_REF##*/} }}'
           path: ./coverage/report.json
