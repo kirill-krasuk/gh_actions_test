@@ -10,6 +10,15 @@ jobs:
   CI:
     runs-on: ubuntu-latest
     steps:
+      - name: Extract branch name
+        if: github.event_name != 'pull_request'
+        shell: bash
+        run: echo "::set-env name=BRANCH_NAME::$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+
+      - name: BRANCH_NAME
+        run: echo ${BRANCH_NAME}
+
       - name: checkout
         uses: actions/checkout@v3
 
@@ -31,5 +40,5 @@ jobs:
       - name: upload coverage report
         uses: actions/upload-artifact@v2
         with:
-          name: coverage-report-${{ ${GITHUB_REF##*/} }}
+          name: coverage-report-${BRANCH_NAME}
           path: ./coverage/report.json
