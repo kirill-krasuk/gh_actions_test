@@ -13,11 +13,11 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
 
-      # - name: set nodejs version
-      #   uses: actions/setup-node@v3
-      #   with: 
-      #     node-version: 14
-      #     cache: npm
+      - name: set nodejs version
+        uses: actions/setup-node@v3
+        with: 
+          node-version: 16
+          cache: npm
 
       - name: echo node version
         run: node -v
