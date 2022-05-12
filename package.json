@@ -17,6 +17,16 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "jest": {
+    "coverageThreshold": {
+      "global": {
+        "statements": 100,
+        "branches": 50,
+        "functions": 100,
+        "lines": 100
+      }
+    }
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
