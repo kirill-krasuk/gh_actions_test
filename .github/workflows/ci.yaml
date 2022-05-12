@@ -13,9 +13,6 @@ jobs:
       - name: checkout
         uses: actions/checkout@v3
 
-      - name: echo current branch
-        run: echo ${GITHUB_REF##*/}
-
       - name: set nodejs version
         uses: actions/setup-node@v3
         with: 
@@ -34,5 +31,5 @@ jobs:
       - name: upload coverage report
         uses: actions/upload-artifact@v2
         with:
-          name: coverage-report
+          name: coverage-report-${GITHUB_REF##*/}
           path: ./coverage/report.json
