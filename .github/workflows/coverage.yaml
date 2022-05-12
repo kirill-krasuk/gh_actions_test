@@ -45,6 +45,7 @@ jobs:
     - name: Download artifact
       uses: dawidd6/action-download-artifact@v2
       with: 
+        branch: ${{ steps.branch-name.outputs.base_ref_branch }}
         workflow: ci.yaml
         path: ./prev
 
