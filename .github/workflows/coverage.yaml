@@ -38,14 +38,11 @@ jobs:
     - name: Download artifact
       uses: dawidd6/action-download-artifact@v2
       with: 
-        github_token: ${{ secrets.GITHUB_TOKEN }}
         workflow: ci.yaml
-        branch: develop
         path: ./prev
 
     - uses: ArtiomTr/jest-coverage-report-action@v2
       with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
         coverage-file: ./coverage/report.json
         base-coverage-file: ./prev/coverage-report/report.json
         annotations: 'none'
