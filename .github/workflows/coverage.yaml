@@ -11,19 +11,20 @@ jobs:
     permissions:
       checks: write
       pull-requests: write
-      
+
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
 
-    - uses: actions/download-artifact@v2
-      with:
-        name: coverage-artifact
-        path: ./coverage/base_report/report.json
+    - name: Download artifact
+      uses: dawidd6/action-download-artifact@v2
+      with: 
+        workflow: ci.yaml
+        path: ./prev
 
     - uses: ArtiomTr/jest-coverage-report-action@v2
       with:
         coverage-file: ./coverage/report.json
-        base-coverage-file: ./coverage/base_report/report.json
+        base-coverage-file: ./prev/coverage_report/report.json
         annotations: 'none'
