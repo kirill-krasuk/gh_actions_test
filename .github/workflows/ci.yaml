@@ -11,10 +11,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Get branch name
-        run: echo "::set-env name=BRANCH_NAME::${GITHUB_REF##*/}"
+        id: branch-name
+        uses: tj-actions/branch-names@v5.2
 
       - name: BRANCH_NAME
-        run: echo ${{env.BRANCH_NAME}}
+        run: echo ${{ steps.branch-name.outputs.base_ref_branch }}
 
       - name: checkout
         uses: actions/checkout@v3
@@ -37,5 +38,5 @@ jobs:
       - name: upload coverage report
         uses: actions/upload-artifact@v2
         with:
-          name: coverage-report-${{env.BRANCH_NAME}}
+          name: coverage-report-${{ steps.branch-name.outputs.base_ref_branch }}
           path: ./coverage/report.json
